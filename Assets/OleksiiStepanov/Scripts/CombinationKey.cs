@@ -7,6 +7,9 @@ namespace OleksiiStepanov.Skillshare.MVC
     public class CombinationViewKey : MonoBehaviour
     {
         [SerializeField] private Image keyImage;
+        [SerializeField] private Color colorGeneral;
+        [SerializeField] private Color colorInCorrect;
+        [SerializeField] private Color colorCorrect;
 
         private KeyData keyData;
 
@@ -19,7 +22,7 @@ namespace OleksiiStepanov.Skillshare.MVC
             this.keyData = keyData;
 
             keyImage.sprite = keyData.sprite;
-            keyImage.color = Color.white;
+            keyImage.color = colorGeneral;
 
             gameObject.SetActive(true);
         }
@@ -38,13 +41,13 @@ namespace OleksiiStepanov.Skillshare.MVC
 
         public void SetAsCorrect()
         {
-            keyImage.color = Color.yellow;
+            keyImage.color = colorCorrect;
             keyImage.transform.DOScale(1.2f, 0.25f).OnComplete(() => { keyImage.transform.DOScale(1f, 0.25f); });
         }
 
         public void SetAsIncorrect()
         {
-            keyImage.color = Color.red;
+            keyImage.color = colorInCorrect;
             keyImage.transform.DOScale(1.2f, 0.25f).OnComplete(() => { keyImage.transform.DOScale(1f, 0.25f); });
         }
 
@@ -55,7 +58,7 @@ namespace OleksiiStepanov.Skillshare.MVC
 
         public void SetAsExposed()
         {
-            keyImage.color = Color.white;
+            keyImage.color = colorGeneral;
         }
     }
 }

@@ -127,7 +127,9 @@ namespace OleksiiStepanov.Skillshare.MVC
 
         private async void GameOverAsync()
         {
+            Debug.Log("GAME OVER!");
             ResetState();
+
             combinationView.ShowCombination();
             uiView.SetMessageText(Constants.FAIL_TEXT);
 
